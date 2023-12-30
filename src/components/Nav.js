@@ -6,14 +6,14 @@ const Nav = () => {
   const [show, setShow] = useState(false);
   const { pathname } = useLocation();
   // useLocation() : 현재 사용하는 URL 정보를 가져오는 기능.
-  console.log("pathname", pathname);
+  // console.log("pathname", pathname);
   // const [search, setSearch] = useState(""); ==>
   const [inputValue, setInputValue] = useState("");
   const navi = useNavigate();
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      console.log(window.scrollY);
+      // console.log(window.scrollY);
       if (window.scrollY > 50) {
         setShow(true);
       } else {

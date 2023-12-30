@@ -16,7 +16,7 @@ const SearchPage = () => {
 
   const navigate = useNavigate();
   // debounce 연결
-  const debounceSearchTerm = useDebounce(searchTerm, 500);
+  const debounceSearchTerm = useDebounce(searchTerm, 1500);
 
   useEffect(() => {
     if (debounceSearchTerm) {
@@ -27,8 +27,9 @@ const SearchPage = () => {
   const fetchSearchMV = async (searchTerm) => {
     try {
       const response = await axios.get(
-        `/searchMV/multi?include_adult=false&query=${searchTerm}`
-      );
+        `/search/multi?include_adult=false&query=${searchTerm}`
+      ); // 맨 앞 글자의 searchMV를 search로 변경하니 이미지가 뜨긴 하는데 깨진 이미지가 나열이 된다... 왜지...?
+      console.log(response);
       setSearchMV(response.data.results);
       console.log("response", response);
     } catch (err) {}
@@ -40,7 +41,7 @@ const SearchPage = () => {
         {searchMV.map((movie) => {
           if (movie.backdrop_path !== null && movie.media_type !== "person") {
             const movieImageUrl =
-              "https://image.tmdb/org/t/p/w500" + movie.backdrop_path;
+              "https://image.tmdb.org/t/p/w500" + movie.backdrop_path; //image.themoviedb/org -> image.tmdb.org 로 수정
             return (
               <div className="movie" key={movie.id}>
                 <div

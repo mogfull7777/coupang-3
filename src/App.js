@@ -64,3 +64,15 @@ const Container = styled.main`
     z-index: -1;
   }
 `;
+
+// 2023.12.21
+// params 이용해서 만들 예정.
+// movie id 받은 걸 가지고 해당 영화 데이터 받고 -> 이미지를 보여주게 하겠음.
+// UseLocation()
+// localhost:3000/search?q=Papago => ?q=Papago
+
+// SearchParams()
+// ?q=Papago => Papago
+
+// 디테일 페이지 => http://localhost:3000/1726 => 1726 (useParams)
+// => 영화 데이터 받고 이미지를 받아 보여줌.
